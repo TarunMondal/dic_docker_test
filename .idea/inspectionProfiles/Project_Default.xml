@@ -1,0 +1,94 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="placeholder" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="385" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="value" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTarget" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyInterpreterInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredPackages">
+        <value>
+          <list size="0" />
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N803" />
+          <option value="N801" />
+          <option value="N806" />
+        </list>
+      </option>
+      <option name="ignoredBaseClasses">
+        <list>
+          <option value="unittest.TestCase" />
+          <option value="unittest.case.TestCase" />
+          <option value="object" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="service.signup_service.SignupService.get" />
+          <option value="stud.vo.models.UserModel.objects" />
+          <option value="stud.vo.models.KnitModel.objects" />
+          <option value="Exception.detail" />
+          <option value="backend.service.auth.auth_service.SubMemberVO" />
+          <option value="Refresh_token" />
+          <option value="Confirm_password" />
+          <option value="Password" />
+          <option value="Items_per_page" />
+          <option value="Event_dto" />
+          <option value="Response" />
+          <option value="Searching_data" />
+          <option value="Event_id" />
+          <option value="Member_id" />
+          <option value="Submember_id" />
+          <option value="Group_size" />
+          <option value="Ticket_no" />
+          <option value="Is_whatsapp_send" />
+          <option value="Is_deleted" />
+          <option value="Created_on" />
+          <option value="Modified_on" />
+          <option value="Event_name" />
+          <option value="Total_capacity" />
+          <option value="Reserved_seats" />
+          <option value="Venue" />
+          <option value="Date" />
+          <option value="Is_seat_data" />
+          <option value="Seat_data" />
+          <option value="Rows" />
+          <option value="Rows_seating_capacity" />
+          <option value="_random.random.choice" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

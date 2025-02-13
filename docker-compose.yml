@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Make sure this file exists!
+    ports:
+      - "8000:8000"
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile  # This should exist in `frontend/`
+    ports:
+      - "8001:3000"  # Expose frontend on port 8001
+    stdin_open: true
+    tty: true
