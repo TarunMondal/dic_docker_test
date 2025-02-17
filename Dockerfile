@@ -1,38 +1,49 @@
-# === Frontend Stage ===
-FROM node:18 AS frontend
+# === Frontend Build Stage ===
+FROM node:18-alpine AS frontend-builder
 
-WORKDIR /app
-
-# Copy package files and install dependencies
-COPY frontend/package.json frontend/package-lock.json ./
+WORKDIR /frontend
+COPY frontend/package*.json ./
 RUN npm install
 
-# Copy the rest of the frontend files and build React
-COPY frontend /app
+COPY frontend/ ./
 RUN npm run build
 
-# === Backend Stage ===
-FROM python:3.10 AS backend
+# === Backend Build Stage ===
+FROM python:3.10-slim AS backend-builder
 
-WORKDIR /app
-
+WORKDIR /backend
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backend /app
+COPY backend/ .
 
-# === Final Stage (Serve React from FastAPI) ===
-FROM python:3.10
+# === Frontend Runtime Stage ===
+FROM node:18-alpine AS frontend
+
+WORKDIR /app
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend/ ./
+ENV PORT=8001
+ENV HOST=0.0.0.0
+ENV WDS_SOCKET_PORT=8001
+
+EXPOSE 8001
+CMD ["npm", "start"]
+
+# === Backend Runtime Stage ===
+FROM python:3.10-slim AS backend
 
 WORKDIR /app
 
-COPY --from=backend /app /app
+# Install dependencies in the final stage
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Ensure frontend is built correctly
-COPY --from=frontend /app/build /app/frontend/build
-
-RUN pip install --no-cache-dir -r /app/requirements.txt
+# Copy application code
+COPY backend/ .
 
 EXPOSE 8000
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Specify the full path to uvicorn
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
